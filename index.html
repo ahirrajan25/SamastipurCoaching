@@ -1,0 +1,96 @@
+ <!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SamastipurCoaching.com — समस्तीपुर की कोचिंग संस्थानों और कोर्स की डायरेक्टरी।">
+  <title>SamastipurCoaching.com | समस्तीपुर कोचिंग डायरेक्टरी</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="SamastipurCoaching home">
+      <span class="brand-icon">🎓</span>
+      <span>Samastipur<span class="accent">Coaching</span><small>.com</small></span>
+    </a>
+    <nav>
+      <a href="#coaching" data-hi="कोचिंग" data-en="Coaching">कोचिंग</a>
+      <a href="#categories" data-hi="कोर्स" data-en="Courses">कोर्स</a>
+      <a href="#about" data-hi="हमारे बारे में" data-en="About">हमारे बारे में</a>
+      <a href="#contact" data-hi="संपर्क" data-en="Contact">संपर्क</a>
+      <button id="langToggle" class="lang-button" type="button">English</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow" data-hi="समस्तीपुर के विद्यार्थियों के लिए" data-en="For students in Samastipur">समस्तीपुर के विद्यार्थियों के लिए</p>
+        <h1 data-hi="सही कोचिंग खोजें, अपने लक्ष्य की ओर बढ़ें।" data-en="Find the right coaching. Move toward your goals.">सही कोचिंग खोजें, अपने लक्ष्य की ओर बढ़ें।</h1>
+        <p class="hero-copy" data-hi="स्कूल, प्रतियोगी परीक्षाओं और स्किल कोर्स के लिए कोचिंग संस्थानों की जानकारी एक जगह।" data-en="Explore coaching institutes for school subjects, competitive exams, and skill courses in one place.">स्कूल, प्रतियोगी परीक्षाओं और स्किल कोर्स के लिए कोचिंग संस्थानों की जानकारी एक जगह।</p>
+        <a class="primary-button" href="#coaching" data-hi="कोचिंग खोजें ↓" data-en="Explore coaching ↓">कोचिंग खोजें ↓</a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-circle"></div><div class="book">📚</div><div class="cap">🎓</div>
+        <div class="art-note">Learn · Grow · Succeed</div>
+      </div>
+    </section>
+
+    <section class="search-panel" aria-label="Search coaching">
+      <div class="search-field">
+        <label for="searchInput" data-hi="नाम या स्थान से खोजें" data-en="Search by name or area">नाम या स्थान से खोजें</label>
+        <input id="searchInput" type="search" placeholder="जैसे: Tajpur, English, NEET..." data-placeholder-hi="जैसे: Tajpur, English, NEET..." data-placeholder-en="e.g. Tajpur, English, NEET...">
+      </div>
+      <div class="search-field">
+        <label for="categoryFilter" data-hi="कोर्स / श्रेणी" data-en="Course / Category">कोर्स / श्रेणी</label>
+        <select id="categoryFilter">
+          <option value="" data-hi="सभी श्रेणियाँ" data-en="All categories">सभी श्रेणियाँ</option>
+          <option value="school" data-hi="स्कूल ट्यूशन" data-en="School tuition">स्कूल ट्यूशन</option>
+          <option value="competitive" data-hi="प्रतियोगी परीक्षा" data-en="Competitive exams">प्रतियोगी परीक्षा</option>
+          <option value="medical" data-hi="NEET / JEE" data-en="NEET / JEE">NEET / JEE</option>
+          <option value="computer" data-hi="कंप्यूटर / स्किल" data-en="Computer / Skills">कंप्यूटर / स्किल</option>
+        </select>
+      </div>
+      <button id="searchButton" class="primary-button" type="button" data-hi="खोजें" data-en="Search">खोजें</button>
+    </section>
+
+    <section id="categories" class="section">
+      <div class="section-heading">
+        <div><p class="eyebrow" data-hi="अपनी जरूरत चुनें" data-en="Choose what you need">अपनी जरूरत चुनें</p>
+        <h2 data-hi="कोर्स के अनुसार खोजें" data-en="Browse by category">कोर्स के अनुसार खोजें</h2></div>
+      </div>
+      <div class="category-grid">
+        <button class="category-card" data-category="school"><span>📘</span><strong data-hi="स्कूल ट्यूशन" data-en="School tuition">स्कूल ट्यूशन</strong><small data-hi="कक्षा 1–12" data-en="Classes 1–12">कक्षा 1–12</small></button>
+        <button class="category-card" data-category="competitive"><span>📝</span><strong data-hi="प्रतियोगी परीक्षा" data-en="Competitive exams">प्रतियोगी परीक्षा</strong><small data-hi="BPSC, SSC, Railway" data-en="BPSC, SSC, Railway">BPSC, SSC, Railway</small></button>
+        <button class="category-card" data-category="medical"><span>🔬</span><strong>NEET / JEE</strong><small data-hi="मेडिकल और इंजीनियरिंग" data-en="Medical & engineering">मेडिकल और इंजीनियरिंग</small></button>
+        <button class="category-card" data-category="computer"><span>💻</span><strong data-hi="कंप्यूटर / स्किल" data-en="Computer / Skills">कंप्यूटर / स्किल</strong><small data-hi="डिजिटल और करियर स्किल" data-en="Digital & career skills">डिजिटल और करियर स्किल</small></button>
+      </div>
+    </section>
+
+    <section id="coaching" class="section coaching-section">
+      <div class="section-heading">
+        <div><p class="eyebrow" data-hi="डायरेक्टरी" data-en="Directory">डायरेक्टरी</p>
+        <h2 data-hi="कोचिंग संस्थान" data-en="Coaching institutes">कोचिंग संस्थान</h2>
+        <p class="muted" data-hi="संस्थान की सही जानकारी प्रकाशित करने से पहले नाम, पता और कोर्स की पुष्टि करें।" data-en="Please verify each institute's name, address, and courses before publishing its details.">संस्थान की सही जानकारी प्रकाशित करने से पहले नाम, पता और कोर्स की पुष्टि करें।</p></div>
+        <span class="result-count" id="resultCount">3 संस्थान</span>
+      </div>
+      <div id="coachingGrid" class="coaching-grid"></div>
+      <div id="noResults" class="no-results" hidden data-hi="कोई परिणाम नहीं मिला। दूसरी खोज आज़माएँ।" data-en="No results found. Try another search.">कोई परिणाम नहीं मिला। दूसरी खोज आज़माएँ।</div>
+    </section>
+
+    <section id="about" class="about-banner">
+      <div><p class="eyebrow" data-hi="हमारा उद्देश्य" data-en="Our purpose">हमारा उद्देश्य</p><h2 data-hi="समस्तीपुर में शिक्षा की जानकारी, सबके लिए आसान।" data-en="Making education information in Samastipur easier for everyone.">समस्तीपुर में शिक्षा की जानकारी, सबके लिए आसान।</h2></div>
+      <p data-hi="इस डायरेक्टरी का उद्देश्य विद्यार्थियों को समस्तीपुर में कोचिंग और कोर्स की जानकारी ढूँढने में मदद करना है। जानकारी में सुधार सुझाने के लिए हमसे संपर्क करें।" data-en="This directory helps students discover coaching institutes and courses in Samastipur. Contact us to suggest a correction or addition.">इस डायरेक्टरी का उद्देश्य विद्यार्थियों को समस्तीपुर में कोचिंग और कोर्स की जानकारी ढूँढने में मदद करना है। जानकारी में सुधार सुझाने के लिए हमसे संपर्क करें।</p>
+    </section>
+
+    <section id="contact" class="contact-section section">
+      <div><p class="eyebrow" data-hi="हमसे संपर्क करें" data-en="Get in touch">हमसे संपर्क करें</p><h2 data-hi="अपनी कोचिंग की जानकारी जोड़ें" data-en="List your coaching institute">अपनी कोचिंग की जानकारी जोड़ें</h2>
+      <p class="muted" data-hi="कोचिंग का नाम, पता, कोर्स और संपर्क विवरण तैयार रखें। संपर्क ईमेल जोड़ने के बाद विद्यार्थी आपसे सीधे संपर्क कर सकेंगे।" data-en="Prepare your institute name, address, courses, and contact details. Add a working email address so students can contact you.">कोचिंग का नाम, पता, कोर्स और संपर्क विवरण तैयार रखें। संपर्क ईमेल जोड़ने के बाद विद्यार्थी आपसे सीधे संपर्क कर सकेंगे।</p></div>
+      <a class="primary-button" href="#contact" data-hi="संपर्क विवरण जल्द जोड़ें" data-en="Contact details coming soon">संपर्क विवरण जल्द जोड़ें</a>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#">🎓 Samastipur<span class="accent">Coaching</span>.com</a><p data-hi="सही जानकारी · सही मार्गदर्शन · बेहतर भविष्य" data-en="Better information · Better guidance · Brighter futures">सही जानकारी · सही मार्गदर्शन · बेहतर भविष्य</p><small>© <span id="year"></span> SamastipurCoaching.com · <span data-hi="समस्तीपुर की कोचिंग डायरेक्टरी" data-en="Samastipur Coaching Directory">समस्तीपुर की कोचिंग डायरेक्टरी</span></small></footer>
+  <script src="script.js"></script>
+</body>
+</html>
