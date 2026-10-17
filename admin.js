@@ -40,6 +40,7 @@ function formData() {
     courses: csv($("courses").value),
     coursesEn: csv($("coursesEn").value || $("courses").value),
     phone: $("phone").value.trim(),
+    whatsapp: $("whatsapp").value.replace(/\D/g, ""),
     website: $("website").value.trim(),
     note: $("note").value.trim(),
     updatedAt: serverTimestamp()
@@ -63,6 +64,7 @@ function fillForm(item) {
   $("courses").value = (item.courses || []).join(", ");
   $("coursesEn").value = (item.coursesEn || []).join(", ");
   $("phone").value = item.phone || "";
+  $("whatsapp").value = item.whatsapp || "";
   $("website").value = item.website || "";
   $("note").value = item.note || "";
   $("formTitle").textContent = "कोचिंग की जानकारी बदलें";
