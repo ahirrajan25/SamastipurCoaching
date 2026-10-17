@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SamastipurCoaching admin panel">
+  <title>Admin Panel | SamastipurCoaching</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body{min-height:100vh}.admin-wrap{max-width:950px;margin:36px auto;padding:0 18px 50px}
+    .admin-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 24px #183b680d}
+    .admin-card h1,.admin-card h2{color:var(--navy);margin-top:0}.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .admin-field{display:flex;flex-direction:column;gap:6px}.admin-field.full{grid-column:1/-1}
+    .admin-field label{font-size:13px;font-weight:700}.admin-field input,.admin-field select,.admin-field textarea{width:100%;padding:12px;border:1px solid #d8e2ef;border-radius:9px;font:inherit}
+    .admin-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.secondary-button,.danger-button{border:0;border-radius:9px;padding:11px 15px;font:inherit;font-weight:700;cursor:pointer}
+    .secondary-button{background:#edf5ff;color:var(--blue)}.danger-button{background:#fff0f0;color:#b42318}
+    .status{padding:12px;border-radius:9px;background:#edf5ff;margin:12px 0;line-height:1.5}.status.error{background:#fff0f0;color:#a21c1c}.status.ok{background:#eaf8ef;color:#176b35}
+    .admin-list-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.admin-list-item:last-child{border-bottom:0}
+    .admin-list-item p{margin:5px 0 0;color:var(--muted);font-size:13px}.hidden{display:none!important}
+    @media(max-width:600px){.admin-grid{grid-template-columns:1fr}.admin-field.full{grid-column:auto}.admin-card{padding:17px}.admin-list-item{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-icon">🎓</span><span>Samastipur<span class="accent">Coaching</span><small>.com</small></span></a>
+    <nav><a href="index.html">वेबसाइट देखें</a></nav>
+  </header>
+  <main class="admin-wrap">
+    <section class="admin-card">
+      <p class="eyebrow">ADMINISTRATION</p>
+      <h1>Admin Panel</h1>
+      <p class="muted">यहाँ से कोचिंग संस्थानों को जोड़ें, बदलें या हटाएँ। Firebase सेटअप पूरा होने के बाद ही डेटा ऑनलाइन सेव होगा।</p>
+      <div id="setupMessage" class="status">Firebase config की जाँच हो रही है…</div>
+    </section>
+
+    <section id="loginCard" class="admin-card">
+      <h2>Admin Login</h2>
+      <form id="loginForm">
+        <div class="admin-grid">
+          <div class="admin-field full"><label for="email">Admin ईमेल</label><input id="email" type="email" autocomplete="username" required></div>
+          <div class="admin-field full"><label for="password">पासवर्ड</label><input id="password" type="password" autocomplete="current-password" required></div>
+        </div>
+        <div class="admin-actions"><button class="primary-button" type="submit">लॉगिन करें</button></div>
+      </form>
+      <div id="loginMessage" class="status hidden"></div>
+    </section>
+
+    <section id="editorCard" class="admin-card hidden">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <h2 id="formTitle">नई कोचिंग जोड़ें</h2><button id="logoutButton" class="secondary-button" type="button">Logout</button>
+      </div>
+      <form id="instituteForm">
+        <input id="docId" type="hidden">
+        <div class="admin-grid">
+          <div class="admin-field"><label for="name">कोचिंग का नाम (हिंदी)</label><input id="name" required maxlength="100"></div>
+          <div class="admin-field"><label for="nameEn">Name (English)</label><input id="nameEn" maxlength="100"></div>
+          <div class="admin-field"><label for="area">पता / क्षेत्र</label><input id="area" required maxlength="200"></div>
+          <div class="admin-field"><label for="areaEn">Address (English)</label><input id="areaEn" maxlength="200"></div>
+          <div class="admin-field"><label for="category">श्रेणी</label><select id="category" required><option value="school">स्कूल ट्यूशन</option><option value="competitive">प्रतियोगी परीक्षा</option><option value="medical">NEET / JEE</option><option value="computer">कंप्यूटर / स्किल</option></select></div>
+          <div class="admin-field"><label for="icon">आइकन (emoji)</label><input id="icon" value="🎓" maxlength="8"></div>
+          <div class="admin-field"><label for="courses">कोर्स (कॉमा से अलग करें)</label><input id="courses" placeholder="कक्षा 10, गणित, विज्ञान" required></div>
+          <div class="admin-field"><label for="coursesEn">Courses (comma separated)</label><input id="coursesEn" placeholder="Class 10, Maths, Science"></div>
+          <div class="admin-field"><label for="phone">फोन नंबर</label><input id="phone" type="tel" maxlength="25"></div>
+          <div class="admin-field"><label for="website">वेबसाइट URL (वैकल्पिक)</label><input id="website" type="url" placeholder="https://example.com"></div>
+          <div class="admin-field full"><label for="note">नोट / सत्यापन विवरण</label><textarea id="note" rows="2" maxlength="400" placeholder="संस्थान से जानकारी की पुष्टि की गई है।"></textarea></div>
+        </div>
+        <div class="admin-actions"><button class="primary-button" type="submit">सेव करें</button><button id="resetButton" class="secondary-button" type="button">नया फॉर्म</button></div>
+      </form>
+      <div id="editorMessage" class="status hidden"></div>
+    </section>
+
+    <section id="listCard" class="admin-card hidden">
+      <h2>मौजूदा संस्थान</h2>
+      <div id="instituteList">लोड हो रहा है…</div>
+    </section>
+  </main>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

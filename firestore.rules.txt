@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /institutes/{instituteId} {
+      // Public visitors can read the directory.
+      allow read: if true;
+
+      // IMPORTANT: replace admin@example.com with the exact admin login email.
+      // Only that authenticated account can add, edit, or delete institutes.
+      allow create, update, delete: if request.auth != null
+        && request.auth.token.email == "admin@example.com";
+    }
+  }
+}
