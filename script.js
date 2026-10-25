@@ -164,11 +164,13 @@ categoryFilter.addEventListener("change", () => {
   render();
 });
 
-document.querySelectorAll(".category-card").forEach(card => {
+ document.querySelectorAll(".category-card").forEach(card => {
   card.addEventListener("click", () => {
     const value = card.dataset.category;
+
     activeCategory = activeCategory === value ? "" : value;
     categoryFilter.value = "";
+    searchInput.value = "";
 
     document.querySelectorAll(".category-card").forEach(other => {
       other.classList.toggle(
@@ -178,6 +180,11 @@ document.querySelectorAll(".category-card").forEach(card => {
     });
 
     render();
+
+    document.getElementById("coaching").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
   });
 });
 
